@@ -295,7 +295,7 @@ export default function Home() {
 interface SkillCardProps {
   title: string
   skills: string[]
-  icon: SVGRectEel
+  icon: SVGRectElement
 }
 // Helper Components
 function SkillCard({ title, skills, icon }: SkillCardProps) {
