@@ -62,7 +62,7 @@ export default function Home() {
               <motion.div>
                 <Link href="/aboutme">
                   <MotionButton
-                    className="text-xl md:text-2xl text-white mt-8"
+                    className="bg-cyan-400 text-xl md:text-2xl text-white mt-8"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5 }}
