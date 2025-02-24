@@ -7,7 +7,7 @@ import * as THREE from "three"
 
 function Neptune() {
   const meshRef = useRef<THREE.Group>(null)
-  const { scene } = useGLTF("../models/Neptune.glb")
+  const { scene } = useGLTF("/models/Neptune.glb")
 
   useFrame(() => {
     if (meshRef.current) {

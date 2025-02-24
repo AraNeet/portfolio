@@ -60,19 +60,21 @@ export default function Home() {
                 </span>
               </motion.div>
               <motion.div>
-                <MotionButton
-                  className="text-xl md:text-2xl text-white mt-8"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5 }}
-                > About Me </MotionButton>
+                <Link href="/aboutme">
+                  <MotionButton
+                    className="text-xl md:text-2xl text-white mt-8"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5 }}
+                  > About Me </MotionButton>
+                </Link>
               </motion.div>
             </div>
           </motion.section>
         </section>
 
         {/* Skills Section */}
-        <section className="py-20 bg-zinc-900/50 backdrop-blur-sm">
+        <section id="skills" className="py-20 bg-zinc-900/50 backdrop-blur-sm">
           <motion.div
             className="container mx-auto px-4"
             initial={{ opacity: 0 }}
@@ -129,6 +131,7 @@ export default function Home() {
               Featured Projects
             </motion.h2>
             <div className="grid md:grid-cols-2 gap-8">
+            <Link href="https://github.com/AraNeet/Bravus">
               <ProjectCard
                 title="Bravus"
                 description="A booking app that helps business owners organize themselves"
@@ -136,6 +139,8 @@ export default function Home() {
                 role="Fullstack Developer"
                 date="June 2024"
               />
+            </Link>
+            <Link href="https://github.com/AraNeet/holbertonschool-AirBnB_clone_v4">
               <ProjectCard
                 title="Hbnb"
                 description="AirBnB Clone built to learn web development fundamentals"
@@ -143,6 +148,7 @@ export default function Home() {
                 role="Fullstack Developer"
                 date="June 2024"
               />
+            </Link>
             </div>
           </motion.div>
         </section>
@@ -272,15 +278,15 @@ export default function Home() {
               viewport={{ once: true }}
             >
               <Link href="mailto:martinezcruzaj@gmail.com">
-                <Button className="bg-cyan-500 hover:bg-cyan-600">Email Me</Button>
+                <Button className="bg-cyan-500 hover:bg-cyan-400">Email Me</Button>
               </Link>
-              <Link href="https://linkedin.com">
-                <Button variant="outline" className="border-cyan-900/30 hover:border-cyan-400/50">
+              <Link href="https://www.linkedin.com/in/aramis-martinez-a1a507296/">
+                <Button className="bg-cyan-500 hover:bg-cyan-400">
                   LinkedIn
                 </Button>
               </Link>
-              <Link href="https://github.com">
-                <Button variant="outline" className="border-cyan-900/30 hover:border-cyan-400/50">
+              <Link href="https://github.com/araneet">
+                <Button className="bg-cyan-500 hover:bg-cyan-400">
                   GitHub
                 </Button>
               </Link>
