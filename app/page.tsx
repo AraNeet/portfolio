@@ -32,7 +32,8 @@ export default function Home() {
             transition={{ duration: 1 }}
           >
             <div className="container mx-auto px-4 py-20 text-center">
-              <AnimatedText text="ARAMIS MARTINEZ" className="text-6xl md:text-8xl font-bold tracking-tighter mb-6" />
+              <AnimatedText text="Aramis" className="text-6xl md:text-8xl font-bold tracking-tight mb-6 " />
+              <AnimatedText text="Martinez" className="text-6xl md:text-8xl font-bold tracking-tight mb-6" />
               <motion.h2
                 className="text-xl md:text-2xl text-cyan-400 mb-8"
                 initial={{ opacity: 0, y: 20 }}
@@ -60,7 +61,7 @@ export default function Home() {
               </motion.div>
               <motion.div>
                 <MotionButton
-                  className="text-xl md:text-2xl text-cyan-400 mt-8"
+                  className="text-xl md:text-2xl text-white mt-8"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 }}
@@ -294,7 +295,7 @@ export default function Home() {
 interface SkillCardProps {
   title: string
   skills: string[]
-  icon: React.ReactNode
+  icon: SVGRectEel
 }
 // Helper Components
 function SkillCard({ title, skills, icon }: SkillCardProps) {
