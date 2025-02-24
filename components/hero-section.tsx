@@ -49,7 +49,7 @@ export default function HeroSection() {
               >
                 <h2 className="text-2xl font-semibold text-cyan-400">Full Stack Developer</h2>
                 <h1 className="text-4xl font-bold text-sky-300">
-                  I'M <span className="text-white">ARAMIS MARTINEZ</span>,<br />
+                  I AM <span className="text-white">ARAMIS MARTINEZ</span>,<br />
                   SOFTWARE ENGINEER.
                 </h1>
                 <div className="prose prose-invert">

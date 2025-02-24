@@ -2,7 +2,11 @@
 
 import { motion } from "framer-motion"
 
-export function AnimatedText({ text, className = "" }) {
+interface TextProps {
+  text: string
+  className?: string
+}
+export function AnimatedText({ text, className = "" }: TextProps) {
   const letters = Array.from(text)
 
   const container = {

@@ -52,97 +52,98 @@ const HIRAGANA = [
 ]
 
 export default function ParticleEffect() {
-  const canvasRef = useRef<HTMLCanvasElement>(null)
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
+    const canvas = canvasRef.current;
+    if (!canvas) return;
 
-    const ctx = canvas.getContext("2d")
-    if (!ctx) return
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
 
-    let particles: Particle[] = []
-    const particleCount = 50
+    let particles: Particle[] = [];
+    const particleCount = 50;
 
     class Particle {
-      x: number
-      y: number
-      size: number
-      speedX: number
-      speedY: number
-      char: string
-      alpha: number
-      hue: number
+      x: number;
+      y: number;
+      size: number;
+      speedX: number;
+      speedY: number;
+      char: string;
+      alpha: number;
+      hue: number;
+      private canvas: HTMLCanvasElement; // Store canvas reference
 
-      constructor() {
-        this.x = Math.random() * canvas.width
-        this.y = Math.random() * canvas.height
-        this.size = Math.random() * 20 + 10 // Larger size for text
-        this.speedX = Math.random() * 2 - 1
-        this.speedY = Math.random() * 2 - 1
-        this.char = HIRAGANA[Math.floor(Math.random() * HIRAGANA.length)]
-        this.alpha = Math.random() * 0.5 + 0.5
-        this.hue = 180 + Math.random() * 30 - 15 // Cyan variation
+      constructor(canvas: HTMLCanvasElement) { // Accept canvas as parameter
+        this.canvas = canvas;
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 20 + 10;
+        this.speedX = Math.random() * 2 - 1;
+        this.speedY = Math.random() * 2 - 1;
+        this.char = HIRAGANA[Math.floor(Math.random() * HIRAGANA.length)];
+        this.alpha = Math.random() * 0.5 + 0.5;
+        this.hue = 180 + Math.random() * 30 - 15;
       }
 
       update() {
-        this.x += this.speedX
-        this.y += this.speedY
+        this.x += this.speedX;
+        this.y += this.speedY;
 
-        if (this.x > canvas.width) this.x = 0
-        if (this.x < 0) this.x = canvas.width
-        if (this.y > canvas.height) this.y = 0
-        if (this.y < 0) this.y = canvas.height
+        // Use stored canvas reference
+        if (this.x > this.canvas.width) this.x = 0;
+        if (this.x < 0) this.x = this.canvas.width;
+        if (this.y > this.canvas.height) this.y = 0;
+        if (this.y < 0) this.y = this.canvas.height;
 
-        // Randomly change character occasionally
         if (Math.random() < 0.001) {
-          this.char = HIRAGANA[Math.floor(Math.random() * HIRAGANA.length)]
+          this.char = HIRAGANA[Math.floor(Math.random() * HIRAGANA.length)];
         }
       }
 
-      draw() {
-        if (!ctx) return
-        ctx.font = `${this.size}px "Sigmar"`
-        ctx.fillStyle = `hsla(${this.hue}, 70%, 70%, ${this.alpha})`
-        ctx.fillText(this.char, this.x, this.y)
+      draw(ctx: CanvasRenderingContext2D) { // Accept ctx as parameter
+        ctx.font = `${this.size}px "Sigmar"`;
+        ctx.fillStyle = `hsla(${this.hue}, 70%, 70%, ${this.alpha})`;
+        ctx.fillText(this.char, this.x, this.y);
       }
     }
 
     function init() {
-      particles = []
+      particles = [];
       for (let i = 0; i < particleCount; i++) {
-        particles.push(new Particle())
+        particles.push(new Particle(canvas || new HTMLCanvasElement)); // Pass canvas to constructor
       }
     }
 
     function animate() {
-      if (!ctx || !canvas) return
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
+      if (!ctx || !canvas) return;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       particles.forEach((particle) => {
-        particle.update()
-        particle.draw()
-      })
+        particle.update();
+        particle.draw(ctx); // Pass context to draw
+      });
 
-      requestAnimationFrame(animate)
+      requestAnimationFrame(animate);
     }
 
+    // ... rest of the code remains the same
     function handleResize() {
-      if (!canvas) return
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
-      init()
+      if (!canvas) return;
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      init();
     }
 
-    handleResize()
-    window.addEventListener("resize", handleResize)
-    animate()
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    animate();
 
     return () => {
-      window.removeEventListener("resize", handleResize)
-    }
-  }, [])
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
-  return <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none opacity-30" style={{ zIndex: 0 }} />
+  return <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none opacity-30" style={{ zIndex: 0 }} />;
 }
-

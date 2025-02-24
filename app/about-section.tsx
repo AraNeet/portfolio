@@ -16,7 +16,6 @@ export default function AboutSection() {
   })
 
   const translateY = useTransform(scrollYProgress, [0, 1], [100, -100])
-  const translateX = useTransform(scrollYProgress, [0, 1], [100, -100])
 
   return (
     <section ref={containerRef} className="relative py-24 bg-black overflow-hidden">
@@ -46,7 +45,7 @@ export default function AboutSection() {
           >
             <h2 className="text-2xl font-semibold text-cyan-400">Full Stack Developer</h2>
             <h1 className="text-4xl font-bold text-sky-300">
-              I'M <span className="text-white">ARAMIS MARTINEZ</span>,<br />
+              I AM <span className="text-white">ARAMIS MARTINEZ</span>,<br />
               SOFTWARE ENGINEER.
             </h1>
             <div className="prose prose-invert">
@@ -155,7 +154,14 @@ export default function AboutSection() {
   )
 }
 
-function StatsCard({ icon, title, value, prefix = "" }) {
+interface StatsCardProps {
+  icon: React.ReactNode
+  title: string
+  value: number
+  prefix?: string
+}
+
+function StatsCard({ icon, title, value, prefix = "" }: StatsCardProps) {
   return (
     <Card className="p-6 bg-black/50 border border-cyan-900/30">
       <div className="text-cyan-400 mb-4">{icon}</div>

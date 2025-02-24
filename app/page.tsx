@@ -10,6 +10,8 @@ import { AnimatedText } from "./animated-text"
 import ParticleEffect from "./ParticleEffect"
 import { Timeline } from "./timeline"
 
+const MotionButton = motion(Button)
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-black text-white relative">
@@ -57,12 +59,12 @@ export default function Home() {
                 </span>
               </motion.div>
               <motion.div>
-                <Button
+                <MotionButton
                   className="text-xl md:text-2xl text-cyan-400 mt-8"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 }}
-                > About Me </Button>
+                > About Me </MotionButton>
               </motion.div>
             </div>
           </motion.section>
@@ -260,7 +262,7 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              Let's Connect
+              Lets Connect
             </motion.h2>
             <motion.div
               className="flex flex-wrap justify-center gap-4"
@@ -289,8 +291,13 @@ export default function Home() {
   )
 }
 
+interface SkillCardProps {
+  title: string
+  skills: string[]
+  icon: React.ReactNode
+}
 // Helper Components
-function SkillCard({ title, skills, icon }) {
+function SkillCard({ title, skills, icon }: SkillCardProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -312,7 +319,14 @@ function SkillCard({ title, skills, icon }) {
   )
 }
 
-function ProjectCard({ title, description, tech, role, date }) {
+interface ProjectCardProps {
+  title: string
+  description: string
+  tech: string[]
+  role: string
+  date: string
+}
+function ProjectCard({ title, description, tech, role, date }: ProjectCardProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -339,19 +353,3 @@ function ProjectCard({ title, description, tech, role, date }) {
     </motion.div>
   )
 }
-
-function StatsCard({ icon, title, value, prefix = "" }) {
-  return (
-    <Card className="p-6 bg-black/50 border border-cyan-900/30">
-      <div className="text-cyan-400 mb-4">{icon}</div>
-      <div className="space-y-2">
-        <div className="text-3xl font-bold text-white">
-          {prefix}
-          {value}
-        </div>
-        <p className="text-sm text-gray-400">{title}</p>
-      </div>
-    </Card>
-  )
-}
-
