@@ -6,9 +6,9 @@ import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import NeptuneScene from "@/components/neptune-scene"
-import { AnimatedText } from "./animated-text"
-import ParticleEffect from "./ParticleEffect"
-import { Timeline } from "./timeline"
+import { AnimatedText } from "@/components/animated-text"
+import ParticleEffect from "@/components/ParticleEffect"
+import { Timeline } from "@/components/timeline"
 
 const MotionButton = motion(Button)
 
