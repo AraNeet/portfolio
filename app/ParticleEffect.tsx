@@ -63,7 +63,6 @@ export default function ParticleEffect() {
 
       updatePosition() {
         // Calculate position with tilted elliptical orbit
-        const tiltFactor = 0.3 // Adjust tilt amount
         const flattenFactor = 0.5 // Adjust orbit flatten amount
 
         // Calculate base orbital position

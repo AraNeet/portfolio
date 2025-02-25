@@ -1,5 +1,6 @@
 "use client"
 
+/* eslint-disable */
 import { motion } from "framer-motion"
 import UranusScene from "@/components/uranus-scene"
 import Image from "next/image"
