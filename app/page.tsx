@@ -5,7 +5,7 @@ import { Code2Icon, Briefcase, Mail, Phone, MapPin, Languages, Boxes } from "luc
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import NeptuneScene from "./3d-neptune"
+import NeptuneScene from "@/components/neptune-scene"
 import { AnimatedText } from "./animated-text"
 import ParticleEffect from "./ParticleEffect"
 import { Timeline } from "./timeline"
@@ -24,7 +24,7 @@ export default function Home() {
       {/* Content sections with semi-transparent backgrounds */}
       <div className="relative z-10">
         {/* Hero Section */}
-        <section className="min-h-screen bg-gradient-to-b from-black/50 via-cyan-950/10 to-black/50">
+        <section className="min-h-screen">
           <motion.section
             className="min-h-screen flex items-center justify-center"
             initial={{ opacity: 0 }}
@@ -54,15 +54,12 @@ export default function Home() {
                 </Link>
                 <Link href="tel:939-439-5156" className="flex items-center gap-2 hover:text-cyan-400">
                   <Phone className="w-4 h-4" /> 939-439-5156
-                </Link>
-                <span className="flex items-center gap-2">
-                  <MapPin className="w-4 h-4" /> Cidra, Puerto Rico 00739
-                </span>
+                </Link> 
               </motion.div>
               <motion.div>
                 <Link href="/aboutme">
                   <MotionButton
-                    className="bg-cyan-400 text-xl md:text-2xl text-white mt-8"
+                    className="bg-cyan-500 hover:bg-cyan-900 text-xl md:text-2xl text-white mt-8"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5 }}
@@ -154,7 +151,7 @@ export default function Home() {
         </section>
 
         {/* Experience Section */}
-        <section className="py-20 bg-zinc-900/50 backdrop-blur-sm">
+        <section id="experience" className="py-20 bg-zinc-900/50 backdrop-blur-sm">
           <motion.div
             className="container mx-auto px-4"
             initial={{ opacity: 0 }}
@@ -163,7 +160,7 @@ export default function Home() {
             transition={{ duration: 0.6 }}
           >
             <motion.h2
-              className="text-3xl font-bold text-center mb-12"
+              className="text-3xl font-bold text-center mb-12 text-cyan-400"
               initial={{ x: -20, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               viewport={{ once: true }}
@@ -171,37 +168,36 @@ export default function Home() {
             >
               Professional Experience
             </motion.h2>
-            <Timeline
-              items={[
-                {
-                  title: "Programming Student Tutor",
-                  company: "Holberton Coding School",
-                  location: "San Juan, PR",
-                  date: "November 2024 - Current",
-                  description:
-                    "Provided one-on-one and group tutoring to students in Holberton Coding School, clarifying complex concepts and improving comprehension through tailored explanations.",
-                },
-                {
-                  title: "Crew Member",
-                  company: "McDonald's",
-                  location: "Ocala, FL and Cidra, PR",
-                  date: "December 2021 - December 2024",
-                  description:
-                    "Assisted in the training and supervising of a team of 3 employees under the manager's guidance, showcasing leadership and organizational abilities.",
-                },
-                {
-                  title: "Sandwich Artist",
-                  company: "Subway",
-                  location: "Belleview, FL",
-                  date: "September 2021 - November 2021",
-                  description:
+              <Timeline
+                items={[
+                  {
+                    title: "Student Tutor",
+                    company: "Holberton Coding School",
+                    location: "San Juan, PR",
+                    date: "November 2024 - Current",
+                    description:
+                      "Provided one-on-one and group tutoring to students in Holberton Coding School, clarifying complex concepts and improving comprehension through tailored explanations.",
+                  },
+                  {
+                    title: "Crew Member",
+                    company: "McDonald's",
+                    location: "Ocala, FL and Cidra, PR",
+                    date: "December 2021 - December 2024",
+                    description:
+                      "Assisted in the training and supervising of a team of 3 employees under the manager's guidance, showcasing leadership and organizational abilities.",
+                  },
+                  {
+                    title: "Sandwich Artist",
+                    company: "Subway",
+                    location: "Belleview, FL",
+                    date: "September 2021 - November 2021",
+                    description:
                     "Managed the opening and closing store procedures, conducted inventory counts, and oversaw the safe to ensure precision in financial records and a secure financial environment.",
-                },
-              ]}
-            />
+                  },
+                ]}
+              />
           </motion.div>
         </section>
-
         {/* Education Section */}
         <section className="py-20 bg-cyan-950/10 backdrop-blur-sm">
           <motion.div
@@ -227,7 +223,7 @@ export default function Home() {
                   <div>
                     <h4 className="font-medium text-white">Holberton Coding School</h4>
                     <p className="text-gray-400">Computer Science and Software Engineering</p>
-                    <p className="text-sm text-gray-500">Graduating July 2024</p>
+                    <p className="text-sm text-gray-500">Graduated July 2024</p>
                   </div>
                   <div>
                     <h4 className="font-medium text-white">Holberton Coding School</h4>
@@ -278,15 +274,15 @@ export default function Home() {
               viewport={{ once: true }}
             >
               <Link href="mailto:martinezcruzaj@gmail.com">
-                <Button className="bg-cyan-500 hover:bg-cyan-400">Email Me</Button>
+                <Button className="bg-cyan-500 hover:bg-cyan-900">Email Me</Button>
               </Link>
               <Link href="https://www.linkedin.com/in/aramis-martinez-a1a507296/">
-                <Button className="bg-cyan-500 hover:bg-cyan-400">
+                <Button className="bg-cyan-500 hover:bg-cyan-900">
                   LinkedIn
                 </Button>
               </Link>
               <Link href="https://github.com/araneet">
-                <Button className="bg-cyan-500 hover:bg-cyan-400">
+                <Button className="bg-cyan-500 hover:bg-cyan-900">
                   GitHub
                 </Button>
               </Link>
