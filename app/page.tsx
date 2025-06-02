@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Code2Icon, Briefcase, Mail, Phone, Languages, Boxes, Paperclip } from "lucide-react"
+import { Code2Icon, Briefcase, Mail, Phone, Boxes, Paperclip } from "lucide-react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
