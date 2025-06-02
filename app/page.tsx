@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Code2Icon, Briefcase, Mail, Phone, Languages, Boxes } from "lucide-react"
+import { Code2Icon, Briefcase, Mail, Phone, Languages, Boxes, Paperclip } from "lucide-react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
@@ -9,6 +9,7 @@ import NeptuneScene from "@/components/neptune-scene"
 import { AnimatedText } from "@/components/animated-text"
 import ParticleEffect from "@/components/ParticleEffect"
 import { Timeline } from "@/components/timeline"
+import { Skeleton } from "three"
 
 const MotionButton = motion(Button)
 
@@ -40,7 +41,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
               >
-                Full Stack Developer & AR/VR Enthusiast
+                Software Engineer, Game Developer, & AR/VR Enjoyer.
               </motion.h2>
 
               <motion.div
@@ -91,21 +92,25 @@ export default function Home() {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               <SkillCard
                 title="Programming Languages"
-                skills={["Python", "JavaScript", "C++", "HTML", "CSS", "Go"]}
+                skills={["Python", "C#", "Go", "JS/TS", "HTML/CSS"]}
                 icon={<Code2Icon />}
               />
               <SkillCard
                 title="Technologies"
-                skills={["Fiber", "React", "Git", "GitHub", "Flask", "SQLAlchemy"]}
+                skills={["Git", "SQL/NOSQL", ".NET"]}
                 icon={<Boxes />}
               />
               <SkillCard
+                title="Frameworks"
+                skills={["React", "Reflex", "Unity", "Flask", "FiberGO"]}
+                icon={<Paperclip/>}
+              />
+              <SkillCard
                 title="Creative Tools"
-                skills={["Photoshop", "Illustrator", "Premiere Pro"]}
+                skills={["Photoshop", "Premiere Pro", "Blender", "DaVinci Resolve"]}
                 icon={<Briefcase />}
               />
-              <SkillCard title="Languages" skills={["English - Native", "Spanish - Native"]} icon={<Languages />} />
-            </div>
+            </div> 
           </motion.div>
         </section>
 
@@ -128,6 +133,15 @@ export default function Home() {
               Featured Projects
             </motion.h2>
             <div className="grid md:grid-cols-2 gap-8">
+            <Link href="https://github.com/AraNeet/holbertonschool-ar-vr-portfolio-project">
+              <ProjectCard
+                title="Rift"
+                description="A simple AR Dungeon Crawler."
+                tech={["Unity", "C#"]}
+                role="Game Developer"
+                date="May 2025"
+              />
+            </Link>
             <Link href="https://github.com/AraNeet/Bravus">
               <ProjectCard
                 title="Bravus"
@@ -216,8 +230,8 @@ export default function Home() {
             >
               Education & Certifications
             </motion.h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              <Card className="p-6 bg-black/50 border border-cyan-900/30 hover:border-cyan-400/50 transition-colors">
+            <div className="grid md:grid-cols-1 gap-6 place-items-center">
+              <Card className="p-10 bg-black/50 border border-cyan-900/30 hover:border-cyan-400/50 transition-colors">
                 <h3 className="text-xl font-semibold text-cyan-400 mb-4">Education</h3>
                 <div className="space-y-4">
                   <div>
@@ -228,20 +242,7 @@ export default function Home() {
                   <div>
                     <h4 className="font-medium text-white">Holberton Coding School</h4>
                     <p className="text-gray-400">AR/VR Specialization with Unity & C#</p>
-                    <p className="text-sm text-gray-500">Expected May 2025</p>
-                  </div>
-                </div>
-              </Card>
-
-              <Card className="p-6 bg-black/50 border border-cyan-900/30 hover:border-cyan-400/50 transition-colors">
-                <h3 className="text-xl font-semibold text-cyan-400 mb-4">Certifications</h3>
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="font-medium text-white">Adobe Certifications</h4>
-                    <ul className="text-gray-400 list-disc list-inside">
-                      <li>Adobe Photoshop</li>
-                      <li>Premiere Pro Certification</li>
-                    </ul>
+                    <p className="text-sm text-gray-500">Graduated May 2025</p>
                   </div>
                 </div>
               </Card>
