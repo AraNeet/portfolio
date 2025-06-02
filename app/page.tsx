@@ -9,7 +9,7 @@ import NeptuneScene from "@/components/neptune-scene"
 import { AnimatedText } from "@/components/animated-text"
 import ParticleEffect from "@/components/ParticleEffect"
 import { Timeline } from "@/components/timeline"
-import { Skeleton } from "three"
+
 
 const MotionButton = motion(Button)
 
